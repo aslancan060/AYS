@@ -59,8 +59,11 @@
             ödemeDetaylarıToolStripMenuItem = new ToolStripMenuItem();
             btnAddStock = new Button();
             tabPageSatis = new TabPage();
-            comboBoxStok = new ComboBox();
+            groupBox9 = new GroupBox();
             numericQuantitySold = new NumericUpDown();
+            groupBox8 = new GroupBox();
+            comboBoxStok = new ComboBox();
+            dataOgrVw = new DataGridView();
             btnMakeSale = new Button();
             tabPageGelirGider = new TabPage();
             dataGridOdeme = new DataGridView();
@@ -86,7 +89,10 @@
             ((System.ComponentModel.ISupportInitialize)dataGridViewStok).BeginInit();
             contextMenuStrip1.SuspendLayout();
             tabPageSatis.SuspendLayout();
+            groupBox9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericQuantitySold).BeginInit();
+            groupBox8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataOgrVw).BeginInit();
             tabPageGelirGider.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridOdeme).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericAmount).BeginInit();
@@ -174,6 +180,7 @@
             // 
             numericPrice.DecimalPlaces = 2;
             numericPrice.Location = new Point(31, 20);
+            numericPrice.Maximum = new decimal(new int[] { 10000000, 0, 0, 0 });
             numericPrice.Name = "numericPrice";
             numericPrice.Size = new Size(188, 25);
             numericPrice.TabIndex = 3;
@@ -338,37 +345,71 @@
             // 
             // tabPageSatis
             // 
-            tabPageSatis.Controls.Add(comboBoxStok);
-            tabPageSatis.Controls.Add(numericQuantitySold);
+            tabPageSatis.Controls.Add(groupBox9);
+            tabPageSatis.Controls.Add(groupBox8);
+            tabPageSatis.Controls.Add(dataOgrVw);
             tabPageSatis.Controls.Add(btnMakeSale);
             tabPageSatis.Location = new Point(4, 24);
             tabPageSatis.Name = "tabPageSatis";
             tabPageSatis.Size = new Size(1233, 581);
             tabPageSatis.TabIndex = 1;
-            tabPageSatis.Text = "Satış";
+            tabPageSatis.Text = "Öğrenci Ödeme Yönetimi";
             // 
-            // comboBoxStok
+            // groupBox9
             // 
-            comboBoxStok.Location = new Point(20, 20);
-            comboBoxStok.Name = "comboBoxStok";
-            comboBoxStok.Size = new Size(200, 23);
-            comboBoxStok.TabIndex = 0;
+            groupBox9.Controls.Add(numericQuantitySold);
+            groupBox9.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            groupBox9.ForeColor = Color.DarkSlateBlue;
+            groupBox9.Location = new Point(874, 434);
+            groupBox9.Name = "groupBox9";
+            groupBox9.Size = new Size(170, 60);
+            groupBox9.TabIndex = 5;
+            groupBox9.TabStop = false;
+            groupBox9.Text = "Öğrenci Ücreti";
             // 
             // numericQuantitySold
             // 
-            numericQuantitySold.Location = new Point(250, 20);
+            numericQuantitySold.Location = new Point(22, 24);
             numericQuantitySold.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
             numericQuantitySold.Name = "numericQuantitySold";
-            numericQuantitySold.Size = new Size(120, 23);
+            numericQuantitySold.Size = new Size(120, 25);
             numericQuantitySold.TabIndex = 1;
+            // 
+            // groupBox8
+            // 
+            groupBox8.Controls.Add(comboBoxStok);
+            groupBox8.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            groupBox8.ForeColor = Color.DarkSlateBlue;
+            groupBox8.Location = new Point(609, 434);
+            groupBox8.Name = "groupBox8";
+            groupBox8.Size = new Size(238, 60);
+            groupBox8.TabIndex = 4;
+            groupBox8.TabStop = false;
+            groupBox8.Text = "Öğrenci Seçimi";
+            // 
+            // comboBoxStok
+            // 
+            comboBoxStok.Location = new Point(17, 24);
+            comboBoxStok.Name = "comboBoxStok";
+            comboBoxStok.Size = new Size(200, 25);
+            comboBoxStok.TabIndex = 0;
+            // 
+            // dataOgrVw
+            // 
+            dataOgrVw.ContextMenuStrip = contextMenuStrip1;
+            dataOgrVw.Location = new Point(3, 3);
+            dataOgrVw.Name = "dataOgrVw";
+            dataOgrVw.Size = new Size(1222, 377);
+            dataOgrVw.TabIndex = 3;
+            dataOgrVw.CellContentClick += dataOgrVw_CellContentClick;
             // 
             // btnMakeSale
             // 
-            btnMakeSale.Location = new Point(400, 20);
+            btnMakeSale.Location = new Point(1050, 459);
             btnMakeSale.Name = "btnMakeSale";
-            btnMakeSale.Size = new Size(75, 23);
+            btnMakeSale.Size = new Size(124, 23);
             btnMakeSale.TabIndex = 2;
-            btnMakeSale.Text = "Satış Yap";
+            btnMakeSale.Text = "Ödeme Girişi";
             btnMakeSale.Click += btnMakeSale_Click;
             // 
             // tabPageGelirGider
@@ -449,6 +490,8 @@
             // 
             // salesGrid
             // 
+            salesGrid.AllowDrop = true;
+            salesGrid.AllowUserToOrderColumns = true;
             salesGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             salesGrid.Location = new Point(6, 6);
             salesGrid.Name = "salesGrid";
@@ -488,7 +531,10 @@
             ((System.ComponentModel.ISupportInitialize)dataGridViewStok).EndInit();
             contextMenuStrip1.ResumeLayout(false);
             tabPageSatis.ResumeLayout(false);
+            groupBox9.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)numericQuantitySold).EndInit();
+            groupBox8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataOgrVw).EndInit();
             tabPageGelirGider.ResumeLayout(false);
             tabPageGelirGider.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridOdeme).EndInit();
@@ -519,5 +565,8 @@
         private GroupBox groupBox4;
         private GroupBox groupBox3;
         private GroupBox groupBox2;
+        private DataGridView dataOgrVw;
+        private GroupBox groupBox9;
+        private GroupBox groupBox8;
     }
 }

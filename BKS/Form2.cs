@@ -49,10 +49,10 @@ namespace BKS
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
-                SqlDataAdapter adapter = new SqlDataAdapter("SELECT Id,Aciklama,Miktar=Convert(Nvarchar,Miktar)+' TL',Tarih,Tip=case when Tip='G'then 'Gelir' Else 'Gider' end FROM GelirGider", conn);
+                SqlDataAdapter adapter = new SqlDataAdapter("SELECT OgrenciAdi=(select Name from AYSStudents a where a.Id=StudentId),PaymentDate,Amount FROM AYSFeePayments order by StudentId", conn);
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
-                dataGridOdeme.DataSource = dt;
+                dataOgrVw.DataSource = dt;
             }
         }
 
@@ -61,14 +61,16 @@ namespace BKS
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("SELECT Id, UrunAdi FROM Stok", conn);
+                SqlCommand cmd = new SqlCommand("select Id=Id,'İsim'=Name,'Soyisim'=Surname,'Baba Adı'=FatherName,'Doğum Tarihi'=BirthDate," +
+                    "'Öğrenci Kodu'=StudentCode,'Ödeme Durumu'=PaymentStatus,'Ödenen Tutar'=MonthlyFee,'Aktif Öğrenci mi'=case when IsActive=1 then'Evet' else'Hayır' end " +
+                    ",'Sınıfı'=ClassName from AYSstudents ", conn);
                 SqlDataReader reader = cmd.ExecuteReader();
                 comboBoxStok.Items.Clear();
                 while (reader.Read())
                 {
                     comboBoxStok.Items.Add(new ComboBoxItem
                     {
-                        Text = reader["UrunAdi"].ToString(),
+                        Text = reader["İsim"].ToString(),
                         Value = reader["Id"].ToString()
                     });
                 }
@@ -288,7 +290,11 @@ namespace BKS
             bool odemedurum = checkOdemeDurum.Checked;
             bool aktiflik = checkAktif.Checked;
             DateTime dateTime = dateDogum.Value;
-
+            if (ogrenciName == null || ogrenciName == "" || ogrenciSurname == null || ogrenciSurname == "" || classing == null || classing == "")
+            {
+                MessageBox.Show("Sütunları boş bırakamazsınız...", "HATA", MessageBoxButtons.OK);
+                return;
+            }
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
@@ -323,15 +329,15 @@ namespace BKS
             }
 
             ComboBoxItem selectedItem = (ComboBoxItem)comboBoxStok.SelectedItem;
-            int productId = int.Parse(selectedItem.Value);
+            Guid productId = Guid.Parse(selectedItem.Value);
             int quantitySold = (int)numericQuantitySold.Value;
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("UPDATE Stok SET Adet = Adet - @Adet WHERE Id = @Id AND Adet >= @Adet", conn);
-                cmd.Parameters.AddWithValue("@Adet", quantitySold);
-                cmd.Parameters.AddWithValue("@Id", productId);
+                SqlCommand cmd = new SqlCommand("insert into AYSFeePayments (Id,PaymentDate,Amount,StudentId) values (NEWID(),GETDATE(),@Amount,@StudentId)", conn);
+                cmd.Parameters.AddWithValue("@Amount", quantitySold);
+                cmd.Parameters.AddWithValue("@StudentId", productId);
                 int rowsAffected = cmd.ExecuteNonQuery();
 
                 if (rowsAffected > 0)
@@ -398,6 +404,11 @@ namespace BKS
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataOgrVw_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
