@@ -1,4 +1,6 @@
-﻿namespace BKS
+﻿
+
+namespace BKS
 {
     partial class Form1
     {
@@ -28,95 +30,136 @@
         /// </summary>
         private void InitializeComponent()
         {
-            bttnLgn = new Button();
-            passWord = new TextBox();
-            userName = new TextBox();
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
+            materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
+            bttnLgn = new MaterialSkin.Controls.MaterialButton();
+            passWord = new MaterialSkin.Controls.MaterialTextBox();
+            userName = new MaterialSkin.Controls.MaterialTextBox();
+            groupBox1 = new GroupBox();
+            groupBox2 = new GroupBox();
+            groupBox1.SuspendLayout();
+            groupBox2.SuspendLayout();
             SuspendLayout();
+            
+
+            // 
+            // materialLabel3
+            // 
+            materialLabel3.AutoSize = true;
+            materialLabel3.Depth = 0;
+            materialLabel3.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel3.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            materialLabel3.Location = new Point(161, 310);
+            materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel3.Name = "materialLabel3";
+            materialLabel3.Size = new Size(69, 19);
+            materialLabel3.TabIndex = 2;
+            materialLabel3.Text = "Son Giriş:";
             // 
             // bttnLgn
             // 
-            bttnLgn.BackColor = Color.MediumSlateBlue;
-            bttnLgn.FlatAppearance.BorderSize = 0;
-            bttnLgn.FlatStyle = FlatStyle.Flat;
-            bttnLgn.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            bttnLgn.ForeColor = Color.White;
-            bttnLgn.Location = new Point(549, 211);
+            bttnLgn.AutoSize = false;
+            bttnLgn.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            bttnLgn.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            bttnLgn.Depth = 0;
+            bttnLgn.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Bold);
+            bttnLgn.HighEmphasis = true;
+            bttnLgn.Icon = null;
+            bttnLgn.Location = new Point(684, 335);
+            bttnLgn.Margin = new Padding(4, 6, 4, 6);
+            bttnLgn.MouseState = MaterialSkin.MouseState.HOVER;
             bttnLgn.Name = "bttnLgn";
-            bttnLgn.Size = new Size(96, 29);
-            bttnLgn.TabIndex = 0;
+            bttnLgn.NoAccentTextColor = Color.Empty;
+            bttnLgn.Size = new Size(96, 36);
+            bttnLgn.TabIndex = 3;
             bttnLgn.Text = "Giriş Yap";
+            bttnLgn.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            bttnLgn.UseAccentColor = false;
             bttnLgn.UseVisualStyleBackColor = true;
             bttnLgn.Click += bttnLgn_Click;
             // 
             // passWord
             // 
-            passWord.Location = new Point(521, 159);
+            passWord.AnimateReadOnly = false;
+            passWord.BorderStyle = BorderStyle.None;
+            passWord.Depth = 0;
+            passWord.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            passWord.LeadingIcon = null;
+            passWord.Location = new Point(6, 22);
+            passWord.MaxLength = 50;
+            passWord.MouseState = MaterialSkin.MouseState.OUT;
+            passWord.Multiline = false;
             passWord.Name = "passWord";
-            passWord.Size = new Size(124, 23);
-            passWord.TabIndex = 1;
+            passWord.Password = true;
+            passWord.Size = new Size(188, 50);
+            passWord.TabIndex = 4;
+            passWord.Text = "";
+            passWord.TrailingIcon = null;
             // 
             // userName
             // 
-            userName.Location = new Point(521, 116);
+            userName.AnimateReadOnly = false;
+            userName.BorderStyle = BorderStyle.None;
+            userName.Depth = 0;
+            userName.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            userName.LeadingIcon = null;
+            userName.Location = new Point(6, 22);
+            userName.MaxLength = 50;
+            userName.MouseState = MaterialSkin.MouseState.OUT;
+            userName.Multiline = false;
             userName.Name = "userName";
-            userName.Size = new Size(124, 23);
-            userName.TabIndex = 2;
+            userName.Size = new Size(188, 50);
+            userName.TabIndex = 5;
+            userName.Text = "";
+            userName.TrailingIcon = null;
             // 
-            // label1
+            // groupBox1
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(442, 119);
-            label1.Name = "label1";
-            label1.Size = new Size(73, 15);
-            label1.TabIndex = 3;
-            label1.Text = "Kullanıcı Adı";
+            groupBox1.Controls.Add(userName);
+            groupBox1.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            groupBox1.Location = new Point(453, 129);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(200, 79);
+            groupBox1.TabIndex = 6;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Kullanıcı Adı";
             // 
-            // label2
+            // groupBox2
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(455, 162);
-            label2.Name = "label2";
-            label2.Size = new Size(30, 15);
-            label2.TabIndex = 4;
-            label2.Text = "Şifre";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(501, 290);
-            label3.Name = "label3";
-            label3.Size = new Size(56, 15);
-            label3.TabIndex = 5;
-            label3.Text = "Son Giriş:";
+            groupBox2.Controls.Add(passWord);
+            groupBox2.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            groupBox2.Location = new Point(453, 217);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(200, 79);
+            groupBox2.TabIndex = 7;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Şifre";
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(label1);
-            Controls.Add(userName);
-            Controls.Add(passWord);
+            Controls.Add(groupBox2);
+            Controls.Add(groupBox1);
             Controls.Add(bttnLgn);
+            Controls.Add(materialLabel3);
             Name = "Form1";
-            Text = "Form1";
+            Text = "Anaokulu Yönetim Sistemi";
             Load += Form1_Load;
+            groupBox1.ResumeLayout(false);
+            groupBox2.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
+            this.FormClosing += Form1_FormClosing;
         }
 
         #endregion
 
-        private Button bttnLgn;
-        private TextBox passWord;
-        private TextBox userName;
-        private Label label1;
-        private Label label2;
-        private Label label3;
+        private MaterialSkin.Controls.MaterialButton bttnLgn;
+        private MaterialSkin.Controls.MaterialTextBox passWord;
+        private MaterialSkin.Controls.MaterialTextBox userName;
+        private MaterialSkin.Controls.MaterialLabel materialLabel3;
+        private GroupBox groupBox1;
+        private GroupBox groupBox2;
     }
 }

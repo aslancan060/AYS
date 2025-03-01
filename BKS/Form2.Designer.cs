@@ -135,6 +135,7 @@
             // 
             groupBox7.Controls.Add(checkAktif);
             groupBox7.Controls.Add(checkOdemeDurum);
+            groupBox7.FlatStyle = FlatStyle.Popup;
             groupBox7.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             groupBox7.ForeColor = Color.DarkSlateBlue;
             groupBox7.Location = new Point(806, 394);
@@ -142,7 +143,7 @@
             groupBox7.Size = new Size(299, 54);
             groupBox7.TabIndex = 20;
             groupBox7.TabStop = false;
-            groupBox7.Text = "Aktif mi Ödeme Durumu";
+            groupBox7.Text = "Aktif mi ? Ödeme Durumu ?";
             // 
             // checkAktif
             // 
@@ -157,11 +158,11 @@
             // checkOdemeDurum
             // 
             checkOdemeDurum.AutoSize = true;
-            checkOdemeDurum.Location = new Point(156, 24);
+            checkOdemeDurum.Location = new Point(187, 24);
             checkOdemeDurum.Name = "checkOdemeDurum";
-            checkOdemeDurum.Size = new Size(134, 23);
+            checkOdemeDurum.Size = new Size(77, 23);
             checkOdemeDurum.TabIndex = 11;
-            checkOdemeDurum.Text = "Ödeme Durumu";
+            checkOdemeDurum.Text = "Ödendi";
             checkOdemeDurum.UseVisualStyleBackColor = true;
             // 
             // groupBox6
@@ -313,6 +314,7 @@
             dataGridViewStok.Name = "dataGridViewStok";
             dataGridViewStok.Size = new Size(750, 377);
             dataGridViewStok.TabIndex = 0;
+           
             // 
             // contextMenuStrip1
             // 
