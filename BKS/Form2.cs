@@ -13,7 +13,7 @@ namespace BKS
 {
     public partial class Form2 : Form
     {
-        public string connectionString = "Server=31.186.11.161;Database=asl2e6ancomtr_PaymentDBDB;User Id=asl2e6ancomtr_aslan;Password=Aslan123.@;TrustServerCertificate=True;";
+        public string connectionString = ConnectionStringEncryptor.Decrypt("AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAqTLx46JSM06f8HpEmdM0xQQAAAACAAAAAAAQZgAAAAEAACAAAACYt1bY0gAJ+aTFJ/Ox4BV7sHbD+daAHz+g7F9GfNO1WgAAAAAOgAAAAAIAACAAAAA/mU+QgLMEnWYLHVSyBg727XvMr1iFPkcY2v97M0cAVZAAAAChBA8MNA3tL1rDIP4+qM0nC0NCIpokAK5HmigYbGr/1H2fOrq/5/tQA5Ibe8yuhzKuFHmIQHIFR8eKuGh8NQBczrJ8iKqe42dzTzJLwSGvTcAqBQfDtkBHaRPSgGts4vr5MG895aU9AEfuGxmVM/FSnWBjfE0eLHrl80WP3Ui38qP1uM5zYXxmxyi/jRSjvAlAAAAABeDyaGXu4ThIz7IckEtpZ/Q8mBu0hrr43zJGONFnFoZkBeQ4kDzm8Z8P2FgnowgYt1f0bTHSE03Z5gr0Z1Af7A==");
         public Form2()
         {
             InitializeComponent();

@@ -314,7 +314,6 @@
             dataGridViewStok.Name = "dataGridViewStok";
             dataGridViewStok.Size = new Size(750, 377);
             dataGridViewStok.TabIndex = 0;
-           
             // 
             // contextMenuStrip1
             // 

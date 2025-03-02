@@ -2,12 +2,13 @@ using System;
 using System.Data.SqlClient;
 using MaterialSkin;
 using MaterialSkin.Controls;
+using BKS;
 
 namespace BKS
 {
     public partial class Form1 : MaterialForm
     {
-        string connectionString = "Server=31.186.11.161;Database=asl2e6ancomtr_PaymentDBDB;User Id = asl2e6ancomtr_aslan; Password=Aslan123.@;TrustServerCertificate=True;";
+        string connectionString = ConnectionStringEncryptor.Decrypt("AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAqTLx46JSM06f8HpEmdM0xQQAAAACAAAAAAAQZgAAAAEAACAAAACYt1bY0gAJ+aTFJ/Ox4BV7sHbD+daAHz+g7F9GfNO1WgAAAAAOgAAAAAIAACAAAAA/mU+QgLMEnWYLHVSyBg727XvMr1iFPkcY2v97M0cAVZAAAAChBA8MNA3tL1rDIP4+qM0nC0NCIpokAK5HmigYbGr/1H2fOrq/5/tQA5Ibe8yuhzKuFHmIQHIFR8eKuGh8NQBczrJ8iKqe42dzTzJLwSGvTcAqBQfDtkBHaRPSgGts4vr5MG895aU9AEfuGxmVM/FSnWBjfE0eLHrl80WP3Ui38qP1uM5zYXxmxyi/jRSjvAlAAAAABeDyaGXu4ThIz7IckEtpZ/Q8mBu0hrr43zJGONFnFoZkBeQ4kDzm8Z8P2FgnowgYt1f0bTHSE03Z5gr0Z1Af7A==");
         private LoginHistoryService loginHistoryService;
 
         public Form1()
@@ -18,7 +19,7 @@ namespace BKS
             // Material Skin theme ayarlarý
             var manager = MaterialSkinManager.Instance;
             manager.AddFormToManage(this);
-            manager.Theme = MaterialSkinManager.Themes.LIGHT;
+            manager.Theme = MaterialSkinManager.Themes.DARK;
             manager.ColorScheme = new ColorScheme(Primary.Blue500, Primary.Blue700, Primary.Blue300, Accent.LightBlue200, TextShade.WHITE);
         }
 
