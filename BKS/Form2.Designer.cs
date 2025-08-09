@@ -110,7 +110,7 @@
             tabControl.Location = new Point(0, 0);
             tabControl.Name = "tabControl";
             tabControl.SelectedIndex = 0;
-            tabControl.Size = new Size(1241, 609);
+            tabControl.Size = new Size(1256, 622);
             tabControl.TabIndex = 0;
             // 
             // tabPageStok
@@ -127,7 +127,7 @@
             tabPageStok.Controls.Add(btnAddStock);
             tabPageStok.Location = new Point(4, 24);
             tabPageStok.Name = "tabPageStok";
-            tabPageStok.Size = new Size(1233, 581);
+            tabPageStok.Size = new Size(1248, 594);
             tabPageStok.TabIndex = 0;
             tabPageStok.Text = "Öğrenci Yönetimi";
             // 
@@ -180,10 +180,10 @@
             // numericPrice
             // 
             numericPrice.DecimalPlaces = 2;
-            numericPrice.Location = new Point(31, 20);
+            numericPrice.Location = new Point(17, 20);
             numericPrice.Maximum = new decimal(new int[] { 10000000, 0, 0, 0 });
             numericPrice.Name = "numericPrice";
-            numericPrice.Size = new Size(188, 25);
+            numericPrice.Size = new Size(202, 25);
             numericPrice.TabIndex = 3;
             // 
             // groupBox5
@@ -352,7 +352,7 @@
             tabPageSatis.Controls.Add(btnMakeSale);
             tabPageSatis.Location = new Point(4, 24);
             tabPageSatis.Name = "tabPageSatis";
-            tabPageSatis.Size = new Size(1233, 581);
+            tabPageSatis.Size = new Size(1248, 594);
             tabPageSatis.TabIndex = 1;
             tabPageSatis.Text = "Öğrenci Ödeme Yönetimi";
             // 
@@ -423,7 +423,7 @@
             tabPageGelirGider.Controls.Add(btnAddIncomeExpense);
             tabPageGelirGider.Location = new Point(4, 24);
             tabPageGelirGider.Name = "tabPageGelirGider";
-            tabPageGelirGider.Size = new Size(1233, 581);
+            tabPageGelirGider.Size = new Size(1248, 594);
             tabPageGelirGider.TabIndex = 2;
             tabPageGelirGider.Text = "Gelir-Gider Yönetimi";
             // 
@@ -483,7 +483,7 @@
             tabPage1.Location = new Point(4, 24);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(1233, 581);
+            tabPage1.Size = new Size(1248, 594);
             tabPage1.TabIndex = 3;
             tabPage1.Text = "Özel Raporlar";
             tabPage1.UseVisualStyleBackColor = true;
@@ -494,7 +494,7 @@
             salesGrid.AllowDrop = true;
             salesGrid.AllowUserToOrderColumns = true;
             salesGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            salesGrid.Location = new Point(6, 6);
+            salesGrid.Location = new Point(3, 0);
             salesGrid.Name = "salesGrid";
             salesGrid.Size = new Size(1224, 557);
             salesGrid.TabIndex = 0;
@@ -507,7 +507,7 @@
             // 
             // Form2
             // 
-            ClientSize = new Size(1241, 609);
+            ClientSize = new Size(1256, 622);
             Controls.Add(tabControl);
             Name = "Form2";
             Text = "Anaokulu Yönetimi Sistemi";

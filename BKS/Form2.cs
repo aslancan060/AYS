@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.Design;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
@@ -13,19 +14,58 @@ namespace BKS
 {
     public partial class Form2 : Form
     {
-        public string connectionString = ConnectionStringEncryptor.Decrypt("AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAqTLx46JSM06f8HpEmdM0xQQAAAACAAAAAAAQZgAAAAEAACAAAACYt1bY0gAJ+aTFJ/Ox4BV7sHbD+daAHz+g7F9GfNO1WgAAAAAOgAAAAAIAACAAAAA/mU+QgLMEnWYLHVSyBg727XvMr1iFPkcY2v97M0cAVZAAAAChBA8MNA3tL1rDIP4+qM0nC0NCIpokAK5HmigYbGr/1H2fOrq/5/tQA5Ibe8yuhzKuFHmIQHIFR8eKuGh8NQBczrJ8iKqe42dzTzJLwSGvTcAqBQfDtkBHaRPSgGts4vr5MG895aU9AEfuGxmVM/FSnWBjfE0eLHrl80WP3Ui38qP1uM5zYXxmxyi/jRSjvAlAAAAABeDyaGXu4ThIz7IckEtpZ/Q8mBu0hrr43zJGONFnFoZkBeQ4kDzm8Z8P2FgnowgYt1f0bTHSE03Z5gr0Z1Af7A==");
-        public Form2()
-        {
-            InitializeComponent();
-            LoadStockData();
-            LoadStockComboBox();
-            LoadPaymentData();
-            LoadSalesData();
-            LoadStudentClassComboBox();
-            form1.Close();
-        }
+       
         Form1 form1 = new Form1();
+        
+        private void LoadCompanyModules()
+        {
+            List<string> activeModules = new List<string>();
 
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                string query = "select m.ModuleName from CompanyUsers cu  join Companies c on c.CompanyId=cu.CompanyId join CompanyModules cm on cm.CompanyId=c.CompanyId join Modules m on m.ModuleId = cm.ModuleId where cu.UserId='A26CA929-359C-4610-90BD-517A91C14659'";
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    //cmd.Parameters.AddWithValue("@CompanyId", companyId);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            activeModules.Add(reader["ModuleName"].ToString());
+                        }
+                    }
+                }
+            }
+
+            
+            SetTabAccess(activeModules);
+        }
+
+        private void SetTabAccess(List<string> activeModules)
+        {
+            
+            foreach (TabPage tab in tabControl.TabPages)
+            {
+                if (activeModules.Contains(tab.Name))  
+                {
+                    tab.Enabled = true;
+                    // Aktif modüller
+                }
+                else
+                {
+                    tab.Enabled = false;
+                    HideTabPage(tab);
+                }
+            }
+        }
+        private void HideTabPage(TabPage tabPage)
+        {
+            if (tabControl.TabPages.Contains(tabPage))
+            {
+                tabControl.TabPages.Remove(tabPage);
+            }
+        }
         // Stok Yönetimi
         private void LoadStockData()
         {
